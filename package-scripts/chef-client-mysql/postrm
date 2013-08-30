@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# Perform necessary chef-client-mysql removal steps
+# after package is uninstalled.
+#
+
+echo "chef-client-mysql has been uninstalled!"
+
+exit 0
