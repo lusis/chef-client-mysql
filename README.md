@@ -39,6 +39,30 @@ This works for me. It may not work for you. mysql native language bindings are n
 
 This has been tested on both CentOS6 and Ubuntu-12.04 (64 bit only) with most of the `mysql` resources. We're bundling it in with our own stuff going forward.
 
+Here's a quick way to validate:
+
+```
+root@chef-client-mysql-omnibus-build-lab:/vagrant/pkg# PATH=/opt/chef-client-mysql/bin/:$PATH chef-apply -W -e 'chef_gem "mysql"' -l debug
+[2013-08-30T05:00:20+00:00] DEBUG: Building node object for chef-client-mysql-omnibus-build-lab
+[2013-08-30T05:00:20+00:00] DEBUG: Extracting run list from JSON attributes provided on command line
+[2013-08-30T05:00:20+00:00] DEBUG: Applying attributes from json file
+[2013-08-30T05:00:20+00:00] DEBUG: Platform is ubuntu version 12.04
+[2013-08-30T05:00:20+00:00] INFO: Run List is []
+[2013-08-30T05:00:20+00:00] INFO: Run List expands to []
+Recipe: (chef-apply cookbook)::(chef-apply recipe)
+  * chef_gem[mysql] action install[2013-08-30T05:00:20+00:00] INFO: Processing chef_gem[mysql] action install ((chef-apply cookbook)::(chef-apply recipe) line 1)
+[2013-08-30T05:00:20+00:00] DEBUG: chef_gem[mysql] using gem from running ruby environment
+[2013-08-30T05:00:20+00:00] DEBUG: chef_gem[mysql] found installed gem mysql version 2.9.1 matching mysql (>= 0)
+[2013-08-30T05:00:20+00:00] DEBUG: chef_gem[mysql] is already installed - nothing to do
+ (up to date)
+  * chef_gem[mysql] action install[2013-08-30T05:00:20+00:00] INFO: Processing chef_gem[mysql] action install ((chef-apply cookbook)::(chef-apply recipe) line 1)
+[2013-08-30T05:00:20+00:00] DEBUG: chef_gem[mysql] using gem from running ruby environment
+[2013-08-30T05:00:20+00:00] DEBUG: chef_gem[mysql] found installed gem mysql version 2.9.1 matching mysql (>= 0)
+[2013-08-30T05:00:20+00:00] DEBUG: chef_gem[mysql] is already installed - nothing to do
+ (up to date)
+[2013-08-30T05:00:20+00:00] DEBUG: Exiting
+```
+
 ## Customization
 If you want to change any of the versions, here are the places you would look:
 
